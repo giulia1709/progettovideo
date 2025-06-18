@@ -20,12 +20,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera0`, function (sprit
     info.changeScoreBy(10)
     game.splash("ho un nuovo strumento!")
 })
+scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera4`, function (sprite, location) {
+    game.gameOver(false)
+})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera2`, function (sprite, location) {
     tiles.setTileAt(location, assets.tile`transparency16`)
     info.changeScoreBy(5)
-})
-scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
-    game.gameOver(false)
 })
 let Dolly: Sprite = null
 scene.setBackgroundColor(7)
