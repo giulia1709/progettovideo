@@ -1,7 +1,28 @@
+scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera5`, function (sprite, location) {
+    game.gameOver(true)
+})
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (Dolly.vy == 0) {
         Dolly.vy = -100
     }
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera3`, function (sprite, location) {
+    if (game.ask("vuoi la pozione?")) {
+        info.changeScoreBy(5)
+    } else {
+        info.changeScoreBy(0)
+    }
+    music.play(music.melodyPlayable(music.spooky), music.PlaybackMode.UntilDone)
+    tiles.setTileAt(location, assets.tile`transparency16`)
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera0`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`transparency16`)
+    info.changeScoreBy(10)
+    game.splash("ho un nuovo strumento!")
+})
+scene.onOverlapTile(SpriteKind.Player, assets.tile`miaTessera2`, function (sprite, location) {
+    tiles.setTileAt(location, assets.tile`transparency16`)
+    info.changeScoreBy(5)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`transparency16`, function (sprite, location) {
     game.gameOver(false)
